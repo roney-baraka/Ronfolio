@@ -1,18 +1,4 @@
-/*!
-=========================================================
-* JohnDoe Landing page
-=========================================================
 
-* Copyright: 2019 DevCRUD (https://devcrud.com)
-* Licensed: (https://devcrud.com/licenses)
-* Coded by www.devcrud.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// smooth scroll
 $(document).ready(function(){
     $(".navbar .nav-link").on('click', function(event) {
 
@@ -30,6 +16,45 @@ $(document).ready(function(){
         } 
     });
 });
+
+function printResume() {
+  const printWindow = window.open('', "_blank");
+  const content = document.getElementById('resume').innerHTML;
+
+  printWindow.document.open();
+  printWindow.document.write(`
+    <html>
+    <head>
+        <title>Print Resume</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+                line-height: 1.6;
+                color: #333;
+            }
+            h1 {
+                color: #007bff;
+                text-align: center;
+                font-size: 24px;
+            }
+            p {
+                margin: 10px 0;
+            }
+            strong {
+                color: #555;
+            }
+            /* Optional: Add any other styles you want for printing */
+        </style>
+    </head>
+    <body>${content}</body>
+    </html>
+`);
+printWindow.document.close();
+
+printWindow.print();
+  
+}
 
 // protfolio filters
 $(window).on("load", function() {
